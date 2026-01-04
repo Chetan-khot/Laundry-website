@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickClean Laundry Service</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="home"></div>
+  <header>
+    <div class="container header-content">
+      <h1 class="brand">QuickClean</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#how">Working</a>
+        <a href="#contact">Contact</a>
+        <a href="#" id="loginBtnNav" onclick="handleLoginClick(event)">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MOVING ANNOUNCEMENT -->
+  <div class="announcement-bar">
+    <div class="announcement-text">
+      🎉 Members will get 5% off on all services • Join our membership today 🎉
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content container">
+      <div>
+        <h2>Professional Laundry & Dry Cleaning</h2>
+        <p>Fast pickup & delivery, express turnaround, and premium garment care — all at great prices.</p>
+        <a href="schedule-pickup.html" class="btn">Schedule a Pickup</a>
+      </div>
+      <div><img src="../images/laundary_img.jpg" alt="Laundry Service"></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services container">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <a href="washnfold.html">
+          <img src="../images/washnfold.jpg" alt="Wash & Fold">
+          <h3 class="btn">Wash & Fold</h3>
+        </a>
+        <p>Daily wear washed & neatly folded — quick turnaround.</p>
+      </div>
+      <div class="card">
+        <a href="dry-cleaning.html">
+          <img src="../images/Dry-cleaning.png" alt="Dry Clean">
+          <h3 class="btn">Dry Cleaning</h3>
+        </a>
+        <p>Safe dry cleaning for suits, sarees, and delicates.</p>
+      </div>
+      <div class="card">
+        <a href="steam-ironing.html">
+          <img src="../images/ironing.jpg" alt="Ironing">
+          <h3 class="btn">Steam Ironing</h3>
+        </a>
+        <p>Crisp ironing and finishing for all clothes.</p>
+      </div>
+      <div class="card">
+        <a href="home-linen.html">
+          <img src="../images/homelinen.png" alt="Home Linen">
+          <h3 class="btn">Home Linen</h3>
+        </a>
+        <p>Bedsheets, curtains, quilts — handled with care.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="how container">
+    <h2>How it Works</h2>
+    <div class="grid">
+      <div class="step">
+        <h3>1. Book Pickup</h3>
+        <p>Tell us your address and preferred time.</p>
+      </div>
+      <div class="step">
+        <h3>2. We Collect</h3>
+        <p>Our team picks up your clothes from your doorstep.</p>
+      </div>
+      <div class="step">
+        <h3>3. We Clean</h3>
+        <p>Expert cleaning with premium care.</p>
+      </div>
+      <div class="step">
+        <h3>4. We Deliver</h3>
+        <p>Fresh laundry delivered right to you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Memberships-->
+  <section id="member" class="membership">
+    <h2>Membership Plans</h2>
+    <div class="grid">
+      <div class="plan">
+        <h3>Silver</h3>
+        <p class="price">₹999/year</p>
+        <p>Up to 10 kg laundry</p>
+        <button class="btn" onclick="payDemo(999, 'Silver Membership')">
+          Buy Now
+        </button>
+      </div>
+
+      <div class="plan featured">
+        <h3>Gold</h3>
+        <p class="price">₹1799/year</p>
+        <p>Up to 20 kg laundry</p>
+        <button class="btn" onclick="payDemo(1799, 'Gold Membership')">
+          Buy Now
+        </button>
+      </div>
+
+      <div class="plan">
+        <h3>Platinum</h3>
+        <p class="price">₹2499/year</p>
+        <p>Up to 30 kg laundry</p>
+        <button class="btn" onclick="payDemo(2499, 'Platinum Membership')">
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing container">
+    <h2>Pricing</h2>
+    <div class="grid">
+      <div class="plan">
+        <h3>Basic</h3>
+        <p class="price">₹79/kg</p>
+        <p>Wash & fold with quality detergents.</p>
+        <button class="btn" onclick="payDemo(79, 'Basic Laundry')">Pay</button>
+      </div>
+      <div class="plan featured">
+        <h3>Express</h3>
+        <p class="price">₹129/kg</p>
+        <p>Faster 24-48 hr turnaround.</p>
+        <button class="btn" onclick="payDemo(129, 'Express Laundry')">Pay</button>
+      </div>
+      <div class="plan">
+        <h3>Dry Clean</h3>
+        <p class="price">From ₹199</p>
+        <p>Delicates & formal wear care.</p>
+        <button class="btn" onclick="payDemo(199, 'Dry Cleaning')">Pay</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATINGS -->
+  <section id="ratings" class="ratings">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+
+      <div class="ratings-grid">
+
+        <div class="rating-card">
+          <p class="stars">★★★★★</p>
+          <p class="review">
+            Excellent service! Clothes came back fresh and perfectly folded.
+          </p>
+          <h4>- Rahul S.</h4>
+        </div>
+
+        <div class="rating-card">
+          <p class="stars">★★★★☆</p>
+          <p class="review">
+            Very convenient pickup and delivery. Worth the price.
+          </p>
+          <h4>- Ananya P.</h4>
+        </div>
+
+        <div class="rating-card">
+          <p class="stars">★★★★★</p>
+          <p class="review">
+            Best laundry service in the area. Highly recommended!
+          </p>
+          <h4>- Mohit K.</h4>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact container">
+    <h2>Contact Us</h2>
+    <p>Schedule a pickup or ask questions — we’re here to help!</p>
+    <p><strong>Phone:</strong> +91 88800 04880</p>
+    <p><strong>Email:</strong> support@quickclean.in</p>
+    <p><strong>Address:</strong> 123 Clean St, Banashankari, IN 560078</p>
+  </section>
+
+  <!-- FEEDBACK SECTION -->
+  <section id="feedback" class="feedback container">
+    <h2>We Value Your Feedback</h2>
+    <form id="feedbackForm">
+      <input type="text" id="feedbackName" placeholder="Your Name" required />
+      <input type="email" id="feedbackEmail" placeholder="Your Email (Optional)" />
+      <select id="feedbackRating" required>
+        <option value="" disabled selected>Rate Us</option>
+        <option value="5">★★★★★ (Excellent)</option>
+        <option value="4">★★★★☆ (Good)</option>
+        <option value="3">★★★☆☆ (Average)</option>
+        <option value="2">★★☆☆☆ (Fair)</option>
+        <option value="1">★☆☆☆☆ (Poor)</option>
+      </select>
+      <textarea id="feedbackComment" placeholder="Your Comments" required></textarea>
+      <button type="submit" class="btn">Submit Feedback</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 QuickClean Laundry Services. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('feedbackForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      const formData = {
+        name: document.getElementById('feedbackName').value,
+        email: document.getElementById('feedbackEmail').value,
+        rating: document.getElementById('feedbackRating').value,
+        comment: document.getElementById('feedbackComment').value
+      };
+
+      try {
+        const token = localStorage.getItem('authToken');
+        const headers = {
+          'Content-Type': 'application/json'
+        };
+        if (token) {
+          headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        const response = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          alert('Thank you for your feedback!');
+          this.reset();
+          // Re-fill user details if logged in
+          prefillFeedbackForm();
+        } else {
+          alert(data.message || 'Something went wrong. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to submit feedback. Please check your connection.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    });
+  </script>
+
+  <script type="module">
+    import { authAPI } from './js/api.js';
+
+    // Function to pre-fill form
+    async function prefillFeedbackForm() {
+      if (authAPI.isAuthenticated()) {
+        try {
+          const response = await authAPI.getCurrentUser();
+          if (response.success && response.user) {
+            const nameInput = document.getElementById('feedbackName');
+            const emailInput = document.getElementById('feedbackEmail');
+
+            if (nameInput) nameInput.value = response.user.name;
+            if (emailInput) emailInput.value = response.user.email;
+          }
+        } catch (error) {
+          console.error('Error fetching user details:', error);
+        }
+      } else {
+        // Fallback to localStorage if available (legacy support)
+        const name = localStorage.getItem('loggedInName');
+        const email = localStorage.getItem('loggedInEmail');
+        if (name) document.getElementById('feedbackName').value = name;
+        if (email) document.getElementById('feedbackEmail').value = email;
+      }
+    }
+
+    // Call on load
+    document.addEventListener('DOMContentLoaded', prefillFeedbackForm);
+
+    window.payDemo = function (amount, plan) {
+      window.location.href =
+        "payment.html?amount=" + amount + "&plan=" + encodeURIComponent(plan);
+    };
+
+    window.handleLoginClick = function (event) {
+      event.preventDefault();
+
+      // Check both API auth and localStorage
+      const isAuthenticated = authAPI.isAuthenticated();
+      const userName = localStorage.getItem("loggedInName");
+
+      if (isAuthenticated || userName) {
+        // User is logged in, redirect to dashboard
+        window.location.href = "dashboard.html";
+      } else {
+        // User is not logged in, redirect to login page
+        window.location.href = "login.html";
+      }
+    };
+
+    // Update login button text if user is logged in
+    document.addEventListener('DOMContentLoaded', function () {
+      const isAuthenticated = authAPI.isAuthenticated();
+      const userName = localStorage.getItem("loggedInName");
+      const loginBtnNav = document.getElementById("loginBtnNav");
+
+      // Also pre-fill feedback form here in case the module load is faster/slower
+      prefillFeedbackForm();
+
+      if ((isAuthenticated || userName) && loginBtnNav) {
+        loginBtnNav.textContent = "Dashboard";
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

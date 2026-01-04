@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Ironing - Premium Laundry Service</title>
+    <link href="css/styles.css" rel="stylesheet">
+
+    <style>
+        body { margin:0; font-family:"Poppins",sans-serif; background:#f5f7fa; }
+
+        .header {
+            background:#003b95; padding:18px 25px;
+            display:flex; justify-content:space-between; color:white;
+        }
+        .header a { color:white; margin-left:20px; text-decoration:none; }
+
+        .banner {
+            background:url("https://images.unsplash.com/photo-1507090960745-b32f65d3113a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center/cover no-repeat;
+            padding:120px 30px; color:white; text-align:center;
+        }
+        .banner h1 { font-size:42px; font-weight:700; }
+
+        .services-section { padding:60px; text-align:center; }
+        .services-section h2 { font-size:32px; color:#003b95; }
+
+        .grid {
+            display:grid; gap:30px;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+        }
+
+        .card {
+            background:#fff; border-radius:15px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+            overflow:hidden; transition:0.3s;
+        }
+        .card:hover { transform:translateY(-8px); }
+
+        .card img { width:100%; height:190px; object-fit:cover; }
+        .card h3 { margin:15px; color:#003b95; }
+        .card p { margin:0 15px 20px; }
+
+        .btn {
+            background:#003b95; padding:12px 24px;
+            border-radius:8px; text-decoration:none;
+            display:inline-block; color:white;
+        }
+
+        footer {
+            background:#003b95; padding:15px;
+            text-align:center; color:white;
+            margin-top:40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Laundry Service</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="washnfold.html">Wash & Fold</a>
+        <a href="dry-cleaning.html">Dry Cleaning</a>
+        <a href="steam-ironing.html" style="font-weight:700;">Steam Ironing</a>
+        <a href="home-linen.html">Home Linen</a>
+            <a href="login.html">Login</a>
+    </nav>
+</div>
+
+<section class="banner">
+    <h1>Steam Ironing</h1>
+    <p>Perfect wrinkle-free finish for every fabric.</p>
+</section>
+
+<section class="services-section">
+    <h2>Steam Ironing Services</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Shirts & T-Shirts</h3>
+            <p>Professional steam ironing to maintain shape, colour & crisp finishing.</p>
+        </div>
+
+        <div class="card">
+            <h3>Formal Wear</h3>
+            <p>Perfect crease setting for trousers, suits and office wear.</p>
+        </div>
+
+        <div class="card">
+            <h3>Delicate Fabrics</h3>
+            <p>Safe steam ironing for silk, satin, chiffon & embroidered clothing.</p>
+        </div>
+
+    </div>
+
+        <a href="schedule-pickup.html" class="btn">Schedule Pickup</a>
+</section>
+
+<footer>
+    © 2025 Laundry Service — All Rights Reserved.
+</footer>
+
+</body>
+</html>

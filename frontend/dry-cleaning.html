@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dry Cleaning - Premium Laundry Service</title>
+    <link href="css/styles.css" rel="stylesheet">
+
+    <style>
+        body { margin:0; font-family:"Poppins",sans-serif; background:#f5f7fa; }
+
+        .header {
+            background:#003b95; color:white; padding:18px 25px;
+            display:flex; justify-content:space-between; align-items:center;
+        }
+        .header a { color:white; margin-left:20px; text-decoration:none; }
+
+        .banner {
+            background:url("https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center/cover no-repeat;
+            padding:120px 30px; color:white; text-align:center;
+        }
+        .banner h1 { font-size:42px; font-weight:700; }
+
+        .services-section { padding:60px; text-align:center; }
+        .services-section h2 { color:#003b95; margin-bottom:30px; font-size:32px; }
+
+        .grid {
+            display:grid; gap:30px;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+        }
+
+        .card {
+            background:#fff; border-radius:15px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+            overflow:hidden; transition:0.3s;
+        }
+        .card:hover { transform:translateY(-8px); box-shadow:0 8px 18px rgba(0,0,0,0.15); }
+
+        .card img { width:100%; height:190px; object-fit:cover; }
+        .card h3 { margin:15px; color:#003b95; }
+        .card p { margin:0 15px 20px; color:#555; }
+
+        .btn {
+            background:#003b95; color:white;
+            padding:12px 24px; border-radius:8px;
+            text-decoration:none; margin-top:20px; display:inline-block;
+        }
+
+        footer { background:#003b95; color:white; padding:15px; margin-top:40px; text-align:center; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>Laundry Service</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="washnfold.html">Wash & Fold</a>
+        <a href="dry-cleaning.html" style="font-weight:700;">Dry Cleaning</a>
+        <a href="steam-ironing.html">Steam Ironing</a>
+        <a href="home-linen.html">Home Linen</a>
+        <a href="login.html">Login</a>
+    </nav>
+</div>
+
+<section class="banner">
+    <h1>Dry Cleaning</h1>
+    <p>Premium stain removal and fabric-safe solvent cleaning.</p>
+</section>
+
+<section class="services-section">
+    <h2>Dry Cleaning Services</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Suits & Blazers</h3>
+            <p>We maintain the shine, structure and strength of premium outfits.</p>
+        </div>
+
+        <div class="card">
+            <h3>Designer Wear</h3>
+            <p>Delicate treatment that protects embroidery, silk and expensive fabrics.</p>
+        </div>
+
+        <div class="card">
+            <h3>Stain Removal</h3>
+            <p>Expert solvent-based cleaning for tough stains like wine, oil, ink etc.</p>
+        </div>
+
+    </div>
+
+        <a href="schedule-pickup.html" class="btn">Schedule Pickup</a>
+</section>
+
+<footer>
+    © 2025 Laundry Service — All Rights Reserved.
+</footer>
+
+</body>
+</html>

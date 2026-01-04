@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | QuickClean</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0d6efd, #5fa8ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo h1 {
+      color: #0d6efd;
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus {
+      outline: none;
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+    }
+
+    .input-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .password-requirement {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #0d6efd;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #0b5ed7;
+    }
+
+    .btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .error-message {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .redirect {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .redirect a {
+      color: #0d6efd;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .redirect a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="form-container">
+    <div class="logo">
+      <h1>QuickClean</h1>
+    </div>
+    <h2>Create Account</h2>
+    <p class="subtitle">Sign up to get started</p>
+
+    <div id="errorMessage" class="error-message"></div>
+    <div id="successMessage" class="success-message"></div>
+
+    <form id="signupForm">
+      <!-- NAME -->
+      <div class="input-group">
+        <label for="name">Full Name <span style="color: red;">*</span></label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name"
+          placeholder="Enter your full name"
+          required
+          autocomplete="name"
+        >
+      </div>
+
+      <!-- EMAIL -->
+      <div class="input-group">
+        <label for="email">Email <span style="color: red;">*</span></label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email"
+          placeholder="Enter your email"
+          required
+          autocomplete="email"
+        >
+      </div>
+
+      <!-- PHONE -->
+      <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          name="phone"
+          placeholder="Enter your phone number (optional)"
+          autocomplete="tel"
+        >
+      </div>
+
+      <!-- ADDRESS -->
+      <div class="input-group">
+        <label for="address">Address <span style="color: red;">*</span></label>
+        <textarea 
+          id="address" 
+          name="address"
+          placeholder="Enter your full address"
+          required
+          autocomplete="street-address"
+        ></textarea>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="input-group">
+        <label for="password">Password <span style="color: red;">*</span></label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password"
+          placeholder="Create a password"
+          required
+          autocomplete="new-password"
+          minlength="6"
+        >
+        <div class="password-requirement">
+          Password must be at least 6 characters long
+        </div>
+      </div>
+
+      <!-- CONFIRM PASSWORD -->
+      <div class="input-group">
+        <label for="confirmPassword">Confirm Password <span style="color: red;">*</span></label>
+        <input 
+          type="password" 
+          id="confirmPassword" 
+          name="confirmPassword"
+          placeholder="Confirm your password"
+          required
+          autocomplete="new-password"
+          minlength="6"
+        >
+      </div>
+
+      <button type="submit" class="btn" id="submitBtn">Create Account</button>
+    </form>
+
+    <div class="redirect">
+      Already have an account? <a href="login.html">Login</a><br>
+      <a href="index.html">← Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import { authAPI } from './js/api.js';
+
+const signupForm = document.getElementById('signupForm');
+const errorMessage = document.getElementById('errorMessage');
+const successMessage = document.getElementById('successMessage');
+const submitBtn = document.getElementById('submitBtn');
+
+function showError(message) {
+  errorMessage.textContent = message;
+  errorMessage.classList.add('show');
+  successMessage.classList.remove('show');
+}
+
+function showSuccess(message) {
+  successMessage.textContent = message;
+  successMessage.classList.add('show');
+  errorMessage.classList.remove('show');
+}
+
+function hideMessages() {
+  errorMessage.classList.remove('show');
+  successMessage.classList.remove('show');
+}
+
+signupForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  hideMessages();
+  
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+
+  // Validation
+  if (!name || !email || !address || !password || !confirmPassword) {
+    showError('Please fill in all required fields');
+    return;
+  }
+
+  if (!/^\S+@\S+\.\S+$/.test(email)) {
+    showError('Please enter a valid email address');
+    return;
+  }
+
+  if (password.length < 6) {
+    showError('Password must be at least 6 characters long');
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    showError('Passwords do not match');
+    return;
+  }
+
+  // Disable submit button
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Creating Account...';
+
+  try {
+    const response = await authAPI.register({
+      name,
+      email,
+      password,
+      address,
+      phone: phone || undefined
+    });
+
+    if (response.success) {
+      showSuccess('Account created successfully! Redirecting to dashboard...');
+
+      // Save user data to localStorage for backward compatibility
+      if (response.user) {
+        localStorage.setItem("loggedInName", response.user.name);
+        localStorage.setItem("loggedInEmail", response.user.email);
+        localStorage.setItem("loggedInAddress", response.user.address || address);
+      }
+
+      // Redirect to dashboard after short delay
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 1500);
+    }
+  } catch (error) {
+    showError(error.message || 'Registration failed. Please try again.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Create Account';
+  }
+});
+
+// Check if user is already logged in
+document.addEventListener('DOMContentLoaded', () => {
+  if (authAPI.isAuthenticated()) {
+    window.location.href = "dashboard.html";
+  }
+});
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Linen Cleaning - Premium Laundry Service</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Optional Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            background: #5f82b7;
+        }
+
+        /* Header Style */
+        .header {
+            background: #003b95;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .header a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Banner */
+        .banner {
+            background: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center/cover no-repeat;
+            padding: 120px 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 42px;
+            font-weight: 700;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Grid Section */
+        .services-section {
+            padding: 60px;
+            text-align: center;
+        }
+
+        .services-section h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: #003b95;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 15px;
+            color: #003b95;
+        }
+
+        .card p {
+            margin: 0 15px 20px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #003b95;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #002b70;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #003b95;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h2>Laundry Service</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="washnfold.html">Wash & Fold</a>
+            <a href="dry-cleaning.html">Dry Cleaning</a>
+            <a href="steam-ironing.html">Steam Ironing</a>
+            <a href="home-linen.html" style="font-weight:700;">Home Linen</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </div>
+
+    <!-- BANNER -->
+    <section class="banner">
+        <h1>Home Linen Cleaning</h1>
+        <p>Premium cleaning for curtains, bedsheets, comforters, duvets & more.</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="services-section">
+        <h2>Our Home Linen Services</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Bedsheet Cleaning</h3>
+                <p>Fresh, sanitized, and neatly pressed bedsheets delivered to your doorstep.</p>
+            </div>
+
+            <div class="card">
+                <h3>Curtain Cleaning</h3>
+                <p>Deep cleaning using antimicrobial treatments to remove dust & allergens.</p>
+            </div>
+
+            <div class="card">
+                <h3>Carpet & Rug Cleaning</h3>
+                <p>Professional stain removal, deodorizing & fabric-safe cleaning techniques.</p>
+            </div>
+
+            <div class="card">
+                <h3>Duvet / Comforter Cleaning</h3>
+                <p>Gentle deep-cleaning that keeps your comforters fluffy and disinfected.</p>
+            </div>
+
+        </div>
+
+        <a href="schedule-pickup.html" class="btn">Schedule Pickup</a>
+    </section>
+
+    <footer>
+        © 2025 Laundry Service — All Rights Reserved.
+    </footer>
+
+</body>
+</html>

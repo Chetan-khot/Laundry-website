@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secure Payment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.payment-box {
+  background: #fff;
+  padding: 30px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.payment-box h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.amount {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.method {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.method.active {
+  border: 2px solid #0d6efd;
+  background: #e7f1ff;
+}
+
+.method:hover {
+  background: #f0f8ff;
+}
+.pay-btn {
+  width: 100%;
+  padding: 12px;
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.pay-btn:hover {
+  background: #084298;
+}
+.note {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+  color: #777;
+}
+
+.success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.success-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+  animation: pop 0.4s ease;
+}
+
+.checkmark {
+  font-size: 60px;
+  color: #28a745;
+  margin-bottom: 10px;
+  animation: bounce 0.6s ease;
+}
+
+.method-text {
+  margin-top: 10px;
+  color: #555;
+}
+
+.redirect {
+  font-size: 12px;
+  margin-top: 15px;
+  color: #888;
+}
+
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="payment-box">
+  <h2>Secure Payment</h2>
+    <div class="amount">Pay ₹<span id="amt"></span></div>
+
+    <div class="method" onclick="selectMethod(this, 'Card')">
+    💳 Credit / Debit Card
+    </div>
+
+    <div class="method" onclick="selectMethod(this, 'UPI')">
+        📱 UPI (Google Pay, PhonePe)
+    </div>
+
+    <div class="method" onclick="selectMethod(this, 'NetBanking')">
+        🏦 Net Banking
+    </div>
+
+    <div class="method" onclick="selectMethod(this, 'COD')">
+        💼 Cash on Delivery
+    </div>
+
+  <button class="pay-btn" onclick="success()">Pay Now</button>
+  <div class="note">* Demo payment page (no real transaction)</div>
+</div>
+
+<!-- SUCCESS OVERLAY -->
+<div id="successOverlay" class="success-overlay">
+  <div class="success-box">
+    <div class="checkmark">✔</div>
+    <h2>Payment Successful!</h2>
+    <p>Your payment of <strong>₹<span id="successAmt"></span></strong> was completed</p>
+    <p class="method-text">Method: <span id="successMethod"></span></p>
+    <p class="redirect">Redirecting to home...</p>
+  </div>
+</div>
+
+<script type="module">
+import { paymentsAPI, authAPI } from './js/api.js';
+
+window.onload = function () {
+  const params = new URLSearchParams(window.location.search);
+  const amount = params.get("amount") || "0";
+  const plan = params.get("plan") || "";
+  const orderId = params.get("orderId") || null;
+
+  document.getElementById("amt").innerText = amount;
+
+  let selectedMethod = null;
+
+  window.selectMethod = function(element, method) {
+    document.querySelectorAll(".method").forEach(m => {
+      m.classList.remove("active");
+    });
+    element.classList.add("active");
+    selectedMethod = method;
+  }
+
+  window.success = async function() {
+    if (!selectedMethod) {
+      alert("⚠️ Please select a payment method");
+      return;
+    }
+
+    // Check if user is authenticated
+    if (!authAPI.isAuthenticated()) {
+      alert("Please login first to complete payment!");
+      window.location.href = "login.html";
+      return;
+    }
+
+    try {
+      // Determine payment type
+      const paymentType = plan.includes("Membership") ? "Membership" : "Order";
+      
+      // Create payment via API
+      const paymentData = {
+        amount: parseFloat(amount),
+        paymentMethod: selectedMethod,
+        paymentType: paymentType,
+        orderId: orderId,
+        planName: plan || null
+      };
+
+      await paymentsAPI.create(paymentData);
+
+      // Show success overlay
+      document.getElementById("successOverlay").style.display = "flex";
+      document.getElementById("successAmt").innerText = amount;
+      document.getElementById("successMethod").innerText = selectedMethod;
+
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 3000);
+    } catch (error) {
+      alert("Payment failed: " + error.message);
+      console.error("Payment error:", error);
+    }
+  }
+}
+</script>
+
+
+<!-- <script>
+const params = new URLSearchParams(window.location.search);
+document.getElementById("amt").innerText = params.get("amount");
+
+let selectedMethod = null;
+
+function selectMethod(element, method) {
+  document.querySelectorAll(".method").forEach(m => {
+    m.classList.remove("active");
+  });
+
+  element.classList.add("active");
+  selectedMethod = method;
+}
+
+function success() {
+  if (!selectedMethod) {
+    alert("⚠️ Please select a payment method");
+    return;
+  }
+
+  alert("✅ Payment Successful (Demo)\nMethod: " + selectedMethod);
+  window.location.href = "index.html";
+}
+</script> -->
+
+
+</body>
+</html>
