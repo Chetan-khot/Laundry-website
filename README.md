@@ -12,6 +12,10 @@ A complete laundry service website with Node.js/Express backend and MongoDB data
 - User Dashboard
 - Profile Management
 
+ ## 📸 Home Page Preview
+
+![QuickClean Home Page](home.png)
+
 ## Tech Stack
 
 ### Frontend
