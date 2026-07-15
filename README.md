@@ -143,7 +143,18 @@ Laundry-Website/
 - For production, integrate with actual payment gateway
 - Update JWT_SECRET to a strong random string in production
 
-## License
+## 👨‍💻 Author
 
-ISC
+**Chetan Khot**
+
+Computer Science Engineering Student
+
+GitHub:
+https://github.com/Chetan-khot
+
+---
+
+## 📄 License
+
+This project is licensed under the ISC License.# QuickClean Laundry Service - Full Stack Application
 
